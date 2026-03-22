@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaPlan - Calendar</title>
+    <link rel="stylesheet" href="calendar.css">
+</head>
+<body class="light">
+
+<!-- NAVBAR -->
+<nav>
+    <div class="left">
+        <img src="logo.jpg" class="logo" alt="NovaPlan logo">
+        <p class="heading">NovaPlan</p>
+    </div>
+    <div class="right">
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+        <button id="menuBtn" class="menu">☰</button>
+    </div>
+</nav>
+
+<!-- SIDE MENU -->
+<div id="sideMenu" class="side-menu hidden">
+    <a href="home.html">Tasks</a>
+    <a href="notebooks.html">Notebooks</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="profile.html">Me</a>
+</div>
+
+<!-- CALENDAR -->
+<div class="calendar-wrap">
+
+    <!-- MONTH HEADER -->
+    <div class="month-header">
+        <button id="prevMonth">‹</button>
+        <span id="monthLabel">March</span>
+        <button id="nextMonth">›</button>
+    </div>
+
+    <!-- DAY LABELS -->
+    <div class="day-labels">
+        <span>Sun</span><span>Mon</span><span>Tue</span>
+        <span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+    </div>
+
+    <!-- DATE GRID -->
+    <div id="calendarGrid" class="calendar-grid"></div>
+
+</div>
+
+<!-- TASKS PANEL (shown when a date is clicked) -->
+<div id="taskPanel" class="task-panel hidden">
+    <div class="task-panel-header">
+        <span id="selectedDateLabel"></span>
+        <button id="closePanelBtn">✕</button>
+    </div>
+    <div id="panelTaskList" class="panel-task-list"></div>
+</div>
+
+<!-- OVERLAY -->
+<div id="overlay" class="overlay hidden"></div>
+
+<!-- ADD TASK BOTTOM SHEET (same as home) -->
+<div id="taskSheet" class="task-sheet hidden">
+    <input type="text" id="taskInput" placeholder="Input new task here">
+    <input type="date" id="taskDate">
+    <div class="task-options">
+        <select id="categorySelect">
+            <option value="">Choose Category</option>
+        </select>
+        <button id="sendTask">➤</button>
+    </div>
+</div>
+
+<script src="calendar.js"></script>
+</body>
+</html>

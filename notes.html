@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaPlan - Notes</title>
+    <link rel="stylesheet" href="notes.css">
+</head>
+<body class="light">
+
+<!-- NAVBAR -->
+<nav>
+    <div class="left">
+        <button id="backBtn" class="back-btn">←</button>
+        <p class="notebook-title" id="notebookTitle">Notebook</p>
+    </div>
+    <div class="right">
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+        <button id="menuBtn" class="menu">☰</button>
+    </div>
+</nav>
+
+<!-- SIDE MENU -->
+<div id="sideMenu" class="side-menu hidden">
+    <a href="home.html">Tasks</a>
+    <a href="notebooks.html">Notebooks</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="profile.html">Me</a>
+</div>
+
+<!-- NOTES GRID -->
+<div id="notesGrid" class="notes-grid"></div>
+
+<!-- FLOATING ADD BUTTON -->
+<button id="addNoteBtn" class="add-note-btn">+</button>
+
+<!-- ADD / EDIT NOTE MODAL -->
+<div id="noteModal" class="modal hidden">
+    <div class="modal-content">
+        <input type="text" id="noteTitleInput" placeholder="Title">
+        <textarea id="noteContentInput" placeholder="Write your note here..."></textarea>
+        <div class="modal-actions">
+            <button id="cancelNote" class="cancel-btn">Cancel</button>
+            <button id="saveNote" class="save-btn">Save</button>
+        </div>
+    </div>
+</div>
+
+<!-- DELETE CONFIRM -->
+<div id="deleteNoteModal" class="modal hidden">
+    <div class="modal-content small">
+        <p>Delete this note?</p>
+        <div class="modal-actions">
+            <button id="cancelDelete" class="cancel-btn">Cancel</button>
+            <button id="confirmDelete" class="save-btn">Delete</button>
+        </div>
+    </div>
+</div>
+
+<script src="notes.js"></script>
+</body>
+</html>

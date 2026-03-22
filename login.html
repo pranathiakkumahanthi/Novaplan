@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Login</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="nav-left">
+        <img src="logo.jpg" alt="NovaPlan Logo" class="logo">
+        <p class="heading">NovaPlan</p>
+    </div>
+    <div class="nav-right">
+        <p class="grey">Don't have an account?</p>
+        <a href="signup.html" class="green">Sign Up</a>
+    </div>
+</nav>
+
+<!-- CARD -->
+<div class="card">
+    <h1>Login</h1>
+
+    <div class="form-container">
+
+        <label>Email Address</label>
+        <div class="input-box">
+            <input type="email" id="email" placeholder="Email">
+        </div>
+
+        <label>Password</label>
+        <div class="input-box">
+            <input type="password" id="password" placeholder="Password">
+        </div>
+
+        <button class="submit-btn" onclick="login()">Login</button>
+
+        <p class="or">or</p>
+
+        <div id="g_id_onload"
+            data-client_id="383311099064-d7hhsdpsi8kc9695s7r6ik87so7ok3k8.apps.googleusercontent.com"
+            data-callback="handleGoogleLogin">
+        </div>
+
+        <div class="g_id_signin"></div>
+
+        <p id="message" class="message"></p>
+
+    </div>
+</div>
+
+<script>
+async function login() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const message = document.getElementById("message");
+
+    try {
+        const res = await fetch("http://127.0.0.1:5000/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json();
+
+        if (data.status === "success") {
+            localStorage.setItem("user_id", data.user_id);
+            message.innerText = "Login successful!";
+            message.className = "message success";
+            window.location.href = "home.html";
+        } else {
+            message.innerText = "Invalid email or password";
+            message.className = "message error";
+        }
+    } catch (err) {
+        console.error(err);
+        message.innerText = "Server error";
+        message.className = "message error";
+    }
+}
+
+function handleGoogleLogin(response) {
+    fetch("http://127.0.0.1:5000/google-login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token: response.credential })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === "success") {
+            localStorage.setItem("user_id", data.user_id);
+            window.location.href = "home.html";
+        } else {
+            alert("Google login failed");
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Google login error");
+    });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaPlan - Notebooks</title>
+    <link rel="stylesheet" href="notebooks.css">
+</head>
+<body class="light">
+
+<!-- NAVBAR -->
+<nav>
+    <div class="left">
+        <img src="logo.jpg" class="logo" alt="NovaPlan logo">
+        <p class="heading">NovaPlan</p>
+    </div>
+    <div class="right">
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+        <button id="menuBtn" class="menu">☰</button>
+    </div>
+</nav>
+
+<!-- SIDE MENU -->
+<div id="sideMenu" class="side-menu hidden">
+    <a href="home.html">Tasks</a>
+    <a href="notebooks.html">Notebooks</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="profile.html">Me</a>
+</div>
+
+<!-- NOTEBOOK GRID -->
+<div class="page-title">Notebooks</div>
+<div id="notebookGrid" class="notebook-grid"></div>
+
+<!-- ADD NOTEBOOK MODAL -->
+<div id="addNotebookModal" class="modal hidden">
+    <div class="modal-content">
+        <h3>New Notebook</h3>
+        <div class="notebook-preview">
+            <!-- PLACEHOLDER: replace src with your notebook image -->
+            <img src="notebook_green.jpg" alt="notebook" class="notebook-thumb" id="previewImg">
+        </div>
+        <div class="cover-options">
+            <img src="notebook_green.jpg" alt="green" class="cover-opt active" data-src="notebook_green.jpg">
+            <img src="notebook_lime.jpg" alt="lime" class="cover-opt" data-src="notebook_lime.jpg">
+            <img src="notebook_darkgreen.jpg" alt="dark green" class="cover-opt" data-src="notebook_darkgreen.jpg">
+            <img src="notebook_seagreen.jpg" alt="blue" class="cover-opt" data-src="notebook_seagreen.jpg">
+        </div>
+        <input type="text" id="notebookNameInput" placeholder="Enter notebook name">
+        <button id="confirmAddNotebook">Create</button>
+    </div>
+</div>
+<!-- DELETE NOTEBOOK MODAL -->
+<div id="deleteNotebookModal" class="modal hidden">
+    <div class="modal-content">
+        <h3>Delete Notebook?</h3>
+        <p id="deleteNotebookMsg" style="margin:0; font-size:14px; color:#666;">This will also delete all notes inside.</p>
+        <div style="display:flex; gap:10px; margin-top:8px;">
+            <button id="cancelDeleteNotebook" style="flex:1; padding:10px; border-radius:10px; background:#e0e0e0; cursor:pointer; font-size:14px;">Cancel</button>
+            <button id="confirmDeleteNotebook" style="flex:1; padding:10px; border-radius:10px; background:#e24b4a; color:white; font-weight:600; cursor:pointer; font-size:14px;">Delete</button>
+        </div>
+    </div>
+</div>
+<script src="notebooks.js"></script>
+</body>
+</html>

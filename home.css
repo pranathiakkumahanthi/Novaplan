@@ -1,0 +1,476 @@
+body {
+    font-family: 'K2D', sans-serif;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+nav .left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+nav .right {
+    display: flex;
+    gap: 10px;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    margin: 0;
+    padding: 0;
+}
+
+.heading {
+    font-weight: bold;
+    font-family: 'K2D', sans-serif;
+    font-size: 25px;
+    padding: 0;
+    margin-left: 5px;
+}
+
+body.light {
+    background: #f5f5f5;
+    color: #000;
+}
+
+body.light nav {
+    background: #ffffff;
+}
+
+body.dark {
+    background: #1c1c1c;
+    color: #fff;
+}
+
+body.dark nav {
+    background: #1c1c1c;
+}
+
+/* CATEGORY WRAPPER — flex row, dots sit naturally at the end */
+.categories-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.categories {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.categories button {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+    background: rgba(191, 234, 59, 0.3);
+    color: #4a5a2a;
+}
+
+.categories button.active {
+    background: #bfea3b;
+    color: #1e1e1e;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(191, 234, 59, 0.6);
+}
+
+.categories button:hover {
+    background: rgba(191, 234, 59, 0.5);
+}
+
+#addCategory {
+    background: #bfea3b;
+    color: white;
+    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* THREE DOTS BUTTON */
+#menuDots {
+    background: rgba(191, 234, 59, 0.3);
+    color: #4a5a2a;
+    font-size: 20px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    flex-shrink: 0;
+    cursor: pointer;
+    line-height: 1;
+}
+
+#menuDots:hover {
+    background: rgba(191, 234, 59, 0.5);
+}
+
+body.dark #menuDots {
+    background: rgba(191, 234, 59, 0.2);
+    color: #bfea3b;
+}
+
+body.dark .categories button {
+    background: rgba(191, 234, 59, 0.2);
+    color: #bfea3b;
+}
+
+body.dark .categories button.active {
+    background: #bfea3b;
+    color: #000;
+}
+
+body.dark #addCategory {
+    background: #bfea3b;
+    color: black;
+}
+
+/* TASK */
+.task {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    margin: 10px;
+    background: #f2f2f2;
+    border-radius: 10px;
+    color: #000;
+}
+
+body.dark .task {
+    background: #2a2a2a;
+    color: #fff;
+}
+
+.task-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.circle {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #888;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+
+.circle:hover {
+    background: #bfea3b;
+}
+
+#addTaskBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #bfea3b;
+    border: none;
+    border-radius: 50%;
+    font-size: 25px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+/* MODAL */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    width: 320px;
+    max-width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .modal-content {
+    background: #2a2a2a;
+    color: white;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: #f2f2f2;
+    box-sizing: border-box;
+}
+
+body.dark .modal-content input {
+    background: #3a3a3a;
+    color: white;
+}
+
+#confirmDelete,
+#confirmRename,
+#confirmAddCategory {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background: #bfea3b;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#confirmAddCategory:hover,
+#confirmDelete:hover,
+#confirmRename:hover {
+    background: #a8d630;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.task-sheet {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 97%;
+    background: white;
+    padding: 20px;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    pointer-events: auto;
+    animation: slideUp 0.3s ease;
+}
+
+body.dark .task-sheet {
+    background: #2a2a2a;
+    color: white;
+}
+
+.task-sheet input[type="text"],
+.task-sheet input[type="date"] {
+    width: 90%;
+    padding: 15px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #f2f2f2;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+body.dark .task-sheet input[type="text"],
+body.dark .task-sheet input[type="date"] {
+    background: #3a3a3a;
+    color: white;
+}
+
+.task-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+#sendTask {
+    background: #bfea3b;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+#categorySelect {
+    background: rgba(255, 255, 255, 0.9);
+    color: #4a5a2a;
+    border: 1.5px solid rgba(191, 234, 59, 0.5);
+    border-radius: 20px;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+#categorySelect:hover {
+    background: rgba(191, 234, 59, 0.15);
+    border-color: #bfea3b;
+}
+
+#categorySelect:focus {
+    box-shadow: 0 0 8px rgba(191, 234, 59, 0.6);
+    border-color: #bfea3b;
+}
+
+body.dark #categorySelect {
+    background: rgba(255, 255, 255, 0.08);
+    color: #bfea3b;
+    border: 1px solid rgba(191, 234, 59, 0.4);
+}
+
+.due-date {
+    color: red;
+    font-weight: 500;
+}
+
+button {
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+.theme-toggle,
+.menu {
+    font-size: 20px;
+    padding: 5px 10px;
+}
+
+/* CATEGORY DROPDOWN — single clean definition */
+.category-menu {
+    position: absolute;
+    top: 44px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 12px;
+    padding: 8px 0;
+    min-width: 160px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    animation: fadeIn 0.2s ease;
+}
+
+.category-menu p {
+    padding: 10px 16px;
+    margin: 0;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.category-menu p:hover {
+    background: rgba(191, 234, 59, 0.2);
+}
+
+body.dark .category-menu {
+    background: #2a2a2a;
+    color: white;
+}
+
+#deleteList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.delete-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 0;
+    cursor: pointer;
+}
+
+.delete-item span { text-align: left; }
+.delete-item input { transform: scale(1.2); }
+.delete-item:hover { background: rgba(191, 234, 59, 0.15); }
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 220px;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    z-index: 200;
+    animation: slideIn 0.3s ease;
+}
+
+.side-menu a {
+    text-decoration: none;
+    color: #333;
+    padding: 12px;
+    margin: 5px 0;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.side-menu a:hover { background: rgba(191, 234, 59, 0.3); }
+body.dark .side-menu { background: #2a2a2a; }
+body.dark .side-menu a { color: white; }
+.side-menu.hidden { display: none; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
